@@ -13,7 +13,9 @@ call plug#end()
 " 基本設定
 """""""""""""""""""""
 syntax on 
+" molokai のビジュアルモードが見辛いので色を変える
 colorscheme molokai
+autocmd colorscheme molokai highlight Visual ctermbg=8
 let g:molokai_original = 1
 let g:rehash256 = 1
 
@@ -39,6 +41,7 @@ set wildmode=full " 候補のリストを表示
 set whichwrap=b,s,h,l,<,>,[,] " カーソルを行頭、行末で止まらないようにする
 set hidden " 変更中のファイルでも、保存しないで他のファイルを表示
 set laststatus=2 " ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
+"　ステータスバーの見た目を変更
 highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 
 
