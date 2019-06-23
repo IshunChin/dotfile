@@ -4,6 +4,10 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'w0rp/ale'
+Plug 'scrooloose/nerdtree'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -27,6 +31,7 @@ set wildmode=full " 候補のリストを表示
 set hidden " 変更中のファイルでも、保存しないで他のファイルを表示
 set cindent " C言語スタイルのインデントを自動で入れる
 set pumheight=20 "　補完メニューの行数を指定,デフォルトは画面いっぱい
+let mapleader=',' "Leaderキーを,にする
 
 """""""""""""""""""""
 " 見た目
@@ -81,6 +86,19 @@ nnoremap + <C-a>
 nnoremap - <C-x> 
 " 行末までヤング
 nnoremap Y y$
+
+"""""""""""""""""""""
+" ALE
+"""""""""""""""""""""
+" ステータスカラムを常に表示
+let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+
+"""""""""""""""""""""
+" NERDTree
+"""""""""""""""""""""
+map <Leader>n :NERDTreeToggle<CR>
+
 
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
