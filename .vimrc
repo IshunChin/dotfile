@@ -12,6 +12,25 @@ call plug#end()
 """""""""""""""""""""
 " 基本設定
 """""""""""""""""""""
+set encoding=utf-8 " エンコーディングの設定
+set showmatch " 閉じカッコを入力すると、一瞬対応するカッコにカーソルが飛ぶ
+set matchtime=1 " showmatchの時間を0.1秒にすiる
+set nocompatible " vi互換を切る
+set whichwrap=b,s,h,l,<,>,[,] "カーソルを行頭、行末で止まらないようにする
+set backspace=2 " delete/backspaceキーが前回の変更を削除できるようにする
+set clipboard=unnamed,autoselect " yankをクリップボードに反映する
+set display=lastline " 行が長くても最後まで表示する
+set autoread " 外部でファイルが書き換えられたら自動で読み直す
+set noswapfile " スワップファイルを生成しない
+set wildmenu " コマンドモードでTabキーによるファイル名を補完する
+set wildmode=full " 候補のリストを表示
+set hidden " 変更中のファイルでも、保存しないで他のファイルを表示
+set cindent " C言語スタイルのインデントを自動で入れる
+set pumheight=20 "　補完メニューの行数を指定,デフォルトは画面いっぱい
+
+"""""""""""""""""""""
+" 見た目
+"""""""""""""""""""""
 syntax on 
 " molokai のビジュアルモードが見辛いので色を変える
 colorscheme molokai
@@ -21,29 +40,14 @@ let g:rehash256 = 1
 
 set title " ウインドウのタイトルバーにファイルのパス情報等を表示する
 set number " 行番号を表示する
-highlight LineNr ctermfg=darkyellow " 行番号の色
 set cursorline " カーソルの行を目立つ
-set showmatch " 閉じカッコを入力すると、一瞬対応するカッコにカーソルが飛ぶ
-set matchtime=1 " showmatchの時間を0.1秒にすiる
-set encoding=utf-8 " エンコーディングの設定
-set nocompatible " vi互換を切る
-set whichwrap=b,s,h,l,<,>,[,] "カーソルを行頭、行末で止まらないようにする
-set backspace=2 " delete/backspaceキーが前回の変更を削除できるようにする
-set clipboard=unnamed,autoselect " yankをクリップボードに反映する
-set ruler " ステータスバーニカーソルの位置表示を行う。
-set display=lastline " 行が長くても最後まで表示する
-set pumheight=20 "　補完メニューの行数を指定。デフォルトは画面いっぱい。
-set autoread " 外部でファイルが書き換えられたら自動で読み直す
-set noswapfile " スワップファイルを生成しない
-set showcmd " ステータスバーの右下に 入力中のコマンドを表示する
-set wildmenu " コマンドモードでTabキーによるファイル名を補完する
-set wildmode=full " 候補のリストを表示
-set whichwrap=b,s,h,l,<,>,[,] " カーソルを行頭、行末で止まらないようにする
-set hidden " 変更中のファイルでも、保存しないで他のファイルを表示
 set laststatus=2 " ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
+set ruler " ステータスバーニカーソルの位置表示を行う
+set showcmd " ステータスバーの右下に 入力中のコマンドを表示する
+" 行番号の色
+highlight LineNr ctermfg=darkyellow
 "　ステータスバーの見た目を変更
 highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
-
 
 """""""""""""""""""""
 " 検索
@@ -62,8 +66,7 @@ set smarttab " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の�
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set shiftwidth=4 " cindentやautoindent時に挿入されるタブの幅
-set smarttab "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-
+set smarttab "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 
 """""""""""""""""""""
 " キーマッピング
