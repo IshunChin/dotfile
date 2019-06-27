@@ -8,6 +8,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -31,7 +32,7 @@ set wildmode=full " 候補のリストを表示
 set hidden " 変更中のファイルでも、保存しないで他のファイルを表示
 set cindent " C言語スタイルのインデントを自動で入れる
 set pumheight=20 "　補完メニューの行数を指定,デフォルトは画面いっぱい
-let mapleader=',' "Leaderキーを,にする
+let mapleader=' ' "Leaderキーをspaceにする
 
 """""""""""""""""""""
 " 見た目
@@ -60,6 +61,15 @@ highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 set incsearch " 検索ワードの最初の文字を入力した時点で検索を開始する
 set smartcase " 小文字のみで検索したときに大文字小文字を無視する
 set hlsearch " 検索結果をハイライト表示する
+"""FZF""" 
+nmap ; :Buffers
+nmap t :Files
+nmap r :Tags
+
+"""ack.vim"""
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 """""""""""""""""""""
 " タブ&インデント
