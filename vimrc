@@ -3,12 +3,13 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
+Plug 'itchyny/lightline.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -53,7 +54,7 @@ set showcmd " ステータスバーの右下に 入力中のコマンドを表�
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
 "　ステータスバーの見た目を変更
-highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
+" highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 
 """""""""""""""""""""
 " 検索
@@ -109,7 +110,23 @@ let g:ale_set_highlights = 0
 """""""""""""""""""""
 map <Leader>n :NERDTreeToggle<CR>
 
+"""""""""""""""""""""
+" lightline
+"""""""""""""""""""""
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
+      \ },
+      \ 'component': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
 
+"""""""""""""""""""""
+" lightline
+"""""""""""""""""""""
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
