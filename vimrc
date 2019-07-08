@@ -11,6 +11,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'crusoexia/vim-monokai'
 
 " Initialize plugin system
 call plug#end()
@@ -40,11 +44,11 @@ let mapleader=' ' "Leaderキーをspaceにする
 " 見た目
 """""""""""""""""""""
 syntax on 
+colorscheme monokai
 " molokai のビジュアルモードが見辛いので色を変える
-colorscheme molokai
-autocmd colorscheme molokai highlight Visual ctermbg=8
-let g:molokai_original = 1
-let g:rehash256 = 1
+" autocmd colorscheme molokai highlight Visual ctermbg=8
+" let g:molokai_original = 1
+" let g:rehash256 = 1
 
 set title " ウインドウのタイトルバーにファイルのパス情報等を表示する
 set number " 行番号を表示する
