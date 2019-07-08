@@ -10,6 +10,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
@@ -63,9 +64,9 @@ set incsearch " 検索ワードの最初の文字を入力した時点で検索�
 set smartcase " 小文字のみで検索したときに大文字小文字を無視する
 set hlsearch " 検索結果をハイライト表示する
 """FZF""" 
-nmap ; :Buffers
-nmap t :Files
-nmap r :Tags
+nmap <Leader>b :Buffers<ENTER>
+nmap <Leader>f :Files<ENTER>
+nmap <Leader>t :Tags<ENTER>
 
 """ack.vim"""
 if executable('ag')
@@ -99,7 +100,7 @@ nnoremap - <C-x>
 nnoremap Y y$
 
 """""""""""""""""""""
-" ALE
+" ale
 """""""""""""""""""""
 " ステータスカラムを常に表示
 let g:ale_sign_column_always = 1
@@ -125,7 +126,7 @@ let g:lightline = {
       \ }
 
 """""""""""""""""""""
-" lightline
+" coc
 """""""""""""""""""""
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
