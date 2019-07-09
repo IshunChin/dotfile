@@ -7,6 +7,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 cd ~
 mkdir -p ~/.vim/plugged
+git clone https://github.com/IshunChin/dotfile.git
 git clone https://github.com/crusoexia/vim-monokai.git ~/.vim/plugged/vim-monokai
 
 ln `pwd`/dotfile/vimrc ~/.vimrc
