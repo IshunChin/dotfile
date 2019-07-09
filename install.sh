@@ -15,3 +15,4 @@ ln `pwd`/dotfile/tmux.conf ~/.tmux.conf
 
 vim +PlugInstall +qall
 vim +"CocInstall coc-python" +qall
+/bin/bash
