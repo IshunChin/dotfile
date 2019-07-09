@@ -7,15 +7,6 @@ a dotfile rep
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-
-
-### colorscheme
-```bash
-mkdir ~/.vim/colors
-git clone https://github.com/tomasr/molokai
-ln -s ~/.vim/colors/molokai/molokai.vim ~/.vim/colors/molokai.vim
-```
-
 ### vimrc coc.nvim
 ```bash
 brew install nodejs
@@ -31,4 +22,11 @@ h coc-status
 ```bash
 brew install fzf
 brew install the_silver_searcher
+```
+
+### Docker(ubuntu 19.04)でお試し
+```bash
+git clone https://github.com/IshunChin/dotfile.git
+docker build -t dev-ubuntu .
+docker run -it dev-ubuntu /tmp/install.sh
 ```
