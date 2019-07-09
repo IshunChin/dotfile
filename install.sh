@@ -17,4 +17,3 @@ ln `pwd`/dotfile/tmux.conf ~/.tmux.conf
 
 
 vim +PlugInstall +qa
-vim +CocInstall coc-python coc-json
