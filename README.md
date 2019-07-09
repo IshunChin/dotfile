@@ -1,32 +1,30 @@
 # dotfile
 a dotfile rep
 
-# vimrc requirement
-### vim-plug
+## Mac
 ```bash
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-### vimrc coc.nvim
-```bash
-brew install nodejs
+# install requirement
+brew install nodejs fzf the_silver_searcher tmux
 
-# check config file
-CocConfig
-
-# show doc
-h coc-status
+#cd your working dirctory and run install.sh
+bash <(curl -fsSL https://raw.githubusercontent.com/IshunChin/dotfile/master/install.sh)
 ```
 
-### vimrc fzf
-```bash
-brew install fzf
-brew install the_silver_searcher
-```
 
-### Docker(ubuntu 19.04)でお試し
+## Docker(ubuntu 19.04)
 ```bash
 git clone https://github.com/IshunChin/dotfile.git
 docker build -t dev-ubuntu .
-docker run -it dev-ubuntu /tmp/install.sh
+docker run -it dev-ubuntu 
+
+#cd your working dirctory and run install.sh
+bash <(curl -fsSL https://raw.githubusercontent.com/IshunChin/dotfile/master/install.sh)
 ```
+
+
+## after coc.vim installed
+### add python completion
+```bash
+vim +"CocInstall coc-python" +qall
+```
+
