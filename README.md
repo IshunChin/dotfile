@@ -15,12 +15,8 @@ bash <(curl -fsSL https://raw.githubusercontent.com/IshunChin/dotfile/master/ins
 ```bash
 git clone https://github.com/IshunChin/dotfile.git
 docker build -t dev-ubuntu .
-docker run -it dev-ubuntu 
-
-#cd your working dirctory and run install.sh
-bash <(curl -fsSL https://raw.githubusercontent.com/IshunChin/dotfile/master/install.sh)
+docker run -it --rm dev-ubuntu 
 ```
-
 
 ## after coc.vim installed
 ### add python completion

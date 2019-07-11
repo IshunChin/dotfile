@@ -9,7 +9,10 @@ RUN apt-get update \
         fzf \
         silversearcher-ag \
         vim \
-        tmux
+        tmux \
+        git 
 
-ENTRYPOINT [ "/bin/bash"]
-CMD []
+COPY ./startup.sh /root/.startup.sh
+RUN chmod +x /root/.startup.sh
+
+ENTRYPOINT [ "/root/.startup.sh" ] 
