@@ -40,15 +40,19 @@ set cindent " C言語スタイルのインデントを自動で入れる
 set pumheight=20 "　補完メニューの行数を指定,デフォルトは画面いっぱい
 let mapleader=' ' "Leaderキーをspaceにする
 
+"""""key mapping"""""
+"インサートモードでEcmas風に移動できるようにする
+"imap <C-p> <Up>
+"imap <C-n> <Down>
+imap <C-b> <Left> 
+imap <C-f> <Right>
+
+
 """""""""""""""""""""
 " 見た目
 """""""""""""""""""""
 syntax on 
 colorscheme monokai
-" molokai のビジュアルモードが見辛いので色を変える
-" autocmd colorscheme molokai highlight Visual ctermbg=8
-" let g:molokai_original = 1
-" let g:rehash256 = 1
 
 set title " ウインドウのタイトルバーにファイルのパス情報等を表示する
 set number " 行番号を表示する
@@ -58,7 +62,7 @@ set ruler " ステータスバーニカーソルの位置表示を行う
 set showcmd " ステータスバーの右下に 入力中のコマンドを表示する
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
-"　ステータスバーの見た目を変更
+" ステータスバーの見た目を変更(lightline使う場合は設定しない)
 " highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 
 """""""""""""""""""""
@@ -67,15 +71,22 @@ highlight LineNr ctermfg=darkyellow
 set incsearch " 検索ワードの最初の文字を入力した時点で検索を開始する
 set smartcase " 小文字のみで検索したときに大文字小文字を無視する
 set hlsearch " 検索結果をハイライト表示する
-"""FZF""" 
-nmap <Leader>b :Buffers<ENTER>
-nmap <Leader>f :Files<ENTER>
-nmap <Leader>t :Tags<ENTER>
+"""fzf""" 
+nnoremap <Leader>b :Buffers<ENTER>
+nnoremap <Leader>f :Files<ENTER>
+nnoremap <Leader>t :Tags<ENTER>
 
 """ack.vim"""
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" for Files
+" let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+
+"for Ag
+" autocmd VimEnter * command! -bang -nargs=* Ag
+  " \ call fzf#vim#ag(<q-args>, '--hidden --ignore .git', <bang>0))
 
 """""""""""""""""""""
 " タブ&インデント
@@ -93,9 +104,10 @@ set smarttab "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数
 " キーマッピング
 """""""""""""""""""""
 " 括弧自動補完
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
+"inoremap { {}<LEFT>
+"inoremap [ []<LEFT>
+"inoremap ( ()<LEFT>
+
 " 数字のインクリメント
 nnoremap + <C-a> 
 " 数字のデクリメント
@@ -113,7 +125,7 @@ let g:ale_set_highlights = 0
 """""""""""""""""""""
 " NERDTree
 """""""""""""""""""""
-map <Leader>n :NERDTreeToggle<CR>
+noremap <Leader>n :NERDTreeToggle<CR>
 
 """""""""""""""""""""
 " lightline
@@ -141,3 +153,13 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
+nnoremap <Leader>p <Plug>(coc-definition)
+
+"""""""""""""""""""""
+" ctags
+"""""""""""""""""""""
+" set tags=./tags;$HOME
+set tags=./tags;
+
+nnoremap <C-]> g<C-]>
