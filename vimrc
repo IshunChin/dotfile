@@ -1,9 +1,8 @@
-" Specify a directory for plugins
+
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug '/usr/local/opt/fzf'
@@ -14,7 +13,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
+
+" Language Server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Colorschme
 Plug 'crusoexia/vim-monokai'
+Plug 'joshdick/onedark.vim'
+
+" terraform support
+Plug 'hashivim/vim-terraform'
 
 " Initialize plugin system
 call plug#end()
@@ -52,8 +60,16 @@ imap <C-f> <Right>
 " 見た目
 """""""""""""""""""""
 syntax on 
-colorscheme monokai
+" colorscheme monokai
+colorscheme onedark
 
+" true colorを有効にする
+if (has("termguicolors"))
+    " tmux上のVimでTrueColorを表示できるようにする
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 set title " ウインドウのタイトルバーにファイルのパス情報等を表示する
 set number " 行番号を表示する
 set cursorline " カーソルの行を目立つ
@@ -104,9 +120,9 @@ set smarttab "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数
 " キーマッピング
 """""""""""""""""""""
 " 括弧自動補完
-"inoremap { {}<LEFT>
-"inoremap [ []<LEFT>
-"inoremap ( ()<LEFT>
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
 
 " 数字のインクリメント
 nnoremap + <C-a> 
