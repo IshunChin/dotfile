@@ -5,14 +5,17 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+
+" fzf
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 " Language Server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -21,12 +24,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'crusoexia/vim-monokai'
 Plug 'joshdick/onedark.vim'
 
-" terraform support
+" Terraform support
 Plug 'hashivim/vim-terraform'
 
 " Initialize plugin system
 call plug#end()
-
 
 """""""""""""""""""""
 " 基本設定
@@ -120,9 +122,9 @@ set smarttab "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数
 " キーマッピング
 """""""""""""""""""""
 " 括弧自動補完
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
+" inoremap { {}<LEFT>
+" inoremap [ []<LEFT>
+" inoremap ( ()<LEFT>
 
 " 数字のインクリメント
 nnoremap + <C-a> 
