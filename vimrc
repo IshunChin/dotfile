@@ -62,8 +62,8 @@ imap <C-f> <Right>
 " 見た目
 """""""""""""""""""""
 syntax on 
-" colorscheme monokai
-colorscheme onedark
+colorscheme monokai
+"colorscheme onedark
 
 " true colorを有効にする
 if (has("termguicolors"))
@@ -118,6 +118,12 @@ set smartindent " 改行時に入力された行の末尾に合わせて次の�
 set shiftwidth=4 " cindentやautoindent時に挿入されるタブの幅
 set smarttab "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.json,*.yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
 """""""""""""""""""""
 " キーマッピング
 """""""""""""""""""""
@@ -132,6 +138,8 @@ nnoremap + <C-a>
 nnoremap - <C-x> 
 " 行末までヤング
 nnoremap Y y$
+" インサートモードで改行を可能にする
+inoremap <C-j> <ESC>o
 
 """""""""""""""""""""
 " ale
