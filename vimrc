@@ -4,7 +4,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -27,8 +27,9 @@ Plug 'joshdick/onedark.vim'
 " Terraform support
 Plug 'hashivim/vim-terraform'
 
-" Initialize plugin system
 call plug#end()
+
+
 
 """""""""""""""""""""
 " 基本設定
@@ -48,6 +49,8 @@ set wildmode=full " 候補のリストを表示
 set hidden " 変更中のファイルでも、保存しないで他のファイルを表示
 set cindent " C言語スタイルのインデントを自動で入れる
 set pumheight=20 "　補完メニューの行数を指定,デフォルトは画面いっぱい
+" キーコードシーケンス終了を待つ時間を短くする(インサートモードからノーマルモードの切り替えが遅い問題)
+set ttimeoutlen=10 
 let mapleader=' ' "Leaderキーをspaceにする
 
 """""key mapping"""""
@@ -57,13 +60,27 @@ let mapleader=' ' "Leaderキーをspaceにする
 imap <C-b> <Left> 
 imap <C-f> <Right>
 
+"""""""""""""""""""""
+" netrw
+"""""""""""""""""""""
+filetype plugin on
+" ファイルツリーの表示形式、1にするとls -laのような表示になります
+let g:netrw_liststyle=1
+" ヘッダを非表示にする
+let g:netrw_banner=0
+" サイズを(K,M,G)で表示する
+let g:netrw_sizestyle="H"
+" 日付フォーマットを yyyy/mm/dd(曜日) hh:mm:ss で表示する
+let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
+" プレビューウィンドウを垂直分割で表示する
+let g:netrw_preview=1
 
 """""""""""""""""""""
 " 見た目
 """""""""""""""""""""
 syntax on 
-colorscheme monokai
-"colorscheme onedark
+" colorscheme monokai
+colorscheme onedark
 
 " true colorを有効にする
 if (has("termguicolors"))
@@ -127,11 +144,6 @@ augroup END
 """""""""""""""""""""
 " キーマッピング
 """""""""""""""""""""
-" 括弧自動補完
-" inoremap { {}<LEFT>
-" inoremap [ []<LEFT>
-" inoremap ( ()<LEFT>
-
 " 数字のインクリメント
 nnoremap + <C-a> 
 " 数字のデクリメント
