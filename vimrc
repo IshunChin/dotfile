@@ -29,8 +29,6 @@ Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
-
-
 """""""""""""""""""""
 " 基本設定
 """""""""""""""""""""
@@ -63,6 +61,7 @@ imap <C-f> <Right>
 """""""""""""""""""""
 " netrw
 """""""""""""""""""""
+" netrwを有効にする
 filetype plugin on
 " ファイルツリーの表示形式、1にするとls -laのような表示になります
 let g:netrw_liststyle=1
@@ -106,10 +105,6 @@ highlight LineNr ctermfg=darkyellow
 set incsearch " 検索ワードの最初の文字を入力した時点で検索を開始する
 set smartcase " 小文字のみで検索したときに大文字小文字を無視する
 set hlsearch " 検索結果をハイライト表示する
-"""fzf""" 
-nnoremap <Leader>b :Buffers<ENTER>
-nnoremap <Leader>f :Files<ENTER>
-nnoremap <Leader>t :Tags<ENTER>
 
 """ack.vim"""
 if executable('ag')
@@ -152,6 +147,12 @@ nnoremap - <C-x>
 nnoremap Y y$
 " インサートモードで改行を可能にする
 inoremap <C-j> <ESC>o
+" termnalを起動する
+noremap <Leader>a :vert term<CR>
+"""fzf""" 
+nnoremap <Leader>b :Buffers<ENTER>
+nnoremap <Leader>f :Files<ENTER>
+nnoremap <Leader>t :Tags<ENTER>
 
 """""""""""""""""""""
 " ale
@@ -159,11 +160,6 @@ inoremap <C-j> <ESC>o
 " ステータスカラムを常に表示
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
-
-"""""""""""""""""""""
-" NERDTree
-"""""""""""""""""""""
-noremap <Leader>n :NERDTreeToggle<CR>
 
 """""""""""""""""""""
 " lightline
