@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/ishunchin/.config/nvim'
+let g:netrw_dirhist_5='/Users/ishunchin/.config/nvim/plugins'
+let g:netrw_dirhist_4='/Users/ishunchin/.config/nvim'
+let g:netrw_dirhist_3='/Users/ishunchin/Documents/eros-gallery/eros-gallery-frontend/src/features/layout'
+let g:netrw_dirhist_2='/Users/ishunchin/Documents/eros-gallery/eros-gallery-frontend/src/features'
+let g:netrw_dirhist_1='/Users/ishunchin/Documents/eros-gallery/eros-gallery-frontend/src'
+let g:netrw_dirhist_0='/Users/ishunchin/Documents/eros-gallery/eros-gallery-frontend'
+let g:netrw_dirhist_9='/Users/ishunchin/Documents/eros-gallery/eros-gallery-scrapy/eros_gallery'
+let g:netrw_dirhist_8='/Users/ishunchin/Documents/eros-gallery/eros-gallery-scrapy'
+let g:netrw_dirhist_7='/Users/ishunchin/.config/nvim'
