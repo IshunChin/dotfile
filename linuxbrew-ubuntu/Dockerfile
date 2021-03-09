@@ -7,8 +7,15 @@ RUN brew install fish \
   jq \
   nvim \
   awscli \
-  fzf
+  fzf \
+  tmux
+
+SHELL ["fish", "--command"]
+ENV SHELL /usr/bin/fish
+ENV LANG=C.UTF-8 LANGUAGE=C.UTF-8 LC_ALL=C.UTF-8
 
 RUN curl -sL https://git.io/fisher | source \
   && fisher install jorgebucaran/fisher \
   && fisher install jethrokuan/fzf
+
+ENTRYPOINT [ "fish" ]
